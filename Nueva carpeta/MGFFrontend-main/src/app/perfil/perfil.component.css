@@ -1,0 +1,134 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://images5.alphacoders.com/132/1325121.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh;
+    color: #fff;
+}
+
+.profile-container {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 80px;
+    background-color:  rgba(85, 85, 85, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    min-height: 600px;
+}
+
+.profile-content {
+    background-color:  #111;
+    flex: 2;
+    text-align: center;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.profile-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.profile-content h2 {
+    margin: 10px 0;
+}
+
+.profile-content p {
+    margin: 10px 0;
+}
+
+.options-panel {
+    flex: 1; 
+    text-align: center;
+    background-color: #111;
+    margin-left: 10px;
+}
+
+.options-panel h3 {
+    margin: 20px;
+}
+
+.options-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.options-panel li {
+    margin-bottom: 10px;
+}
+
+.options-panel a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.options-panel a:hover {
+    color: #777;
+}
+
+/* Pop-Up */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popup-content {
+    background-color: #111;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup-content p {
+    margin: 0 0 20px;
+  }
+  
+  .cancel-btn,
+  .confirm-btn {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+  }
+  
+  .cancel-btn:hover,
+  .confirm-btn:hover {
+    background-color: #333;
+  }
+  
+  button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #333;
+}

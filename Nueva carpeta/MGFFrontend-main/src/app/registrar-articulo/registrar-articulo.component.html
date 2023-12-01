@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="product-registration-container">
+        <h1>Registro de Producto</h1>
+        <form (ngSubmit)="onSubmit(articuloForm.value)" [formGroup]="articuloForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="product-name">Nombre del Producto</label>
+                <input type="text" id="product-name" name="product-name" formControlName="nombre_articulo" required>
+            </div>
+            <div class="form-group">
+                <label for="product-marc">Marca del Producto</label>
+                <input type="text" id="product-marc" name="product-marc" formControlName="marca" required>
+            </div>
+            <div class="form-group">
+                <label for="product-type">Tipo de Producto</label>
+                <input type="text" id="product-type" name="product-type" formControlName="tipo_articulo" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Precio</label>
+                <input type="number" id="product-price" name="product-price" min="0" formControlName="precio" required>
+            </div>
+            <div class="form-group">
+                <label for="product-quantity">Cantidad en Stock</label>
+                <input type="number" id="product-quantity" name="product-quantity" min="1" formControlName="cantidad" required>
+            </div>
+            <div class="form-group">
+                <label for="product-description">Descripción</label>
+                <textarea id="product-description" name="product-description" formControlName="descripcion" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="product-image">Imagen del Producto</label><br>
+                <label for="file-upload" class="custom-file-upload">Seleccionar Archivo</label>
+                <div class="img-cont">
+                    <img id="image-preview" [src]="imagePreview" alt="">
+                    <input type="file" id="file-upload" name="imagen" accept="image/*" (change)="onFileChange($event)" formControlName="file" required>
+                </div>
+            </div>
+            <button type="submit" [disabled]="!articuloForm.valid">Registrar Producto</button>
+        </form>
+    </section>
+    <div class="skip"></div>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <section>
+        <app-bar></app-bar>
+        <div class="cart-container">
+            <h1>Carrito de Compras</h1>
+            <ul class="cart-items" *ngFor="let articulo of contenido">
+                <li class="cart-item">
+                    <div class="cart-info">
+                        <div class="img-container">
+                            <img src={{img_path+articulo.imagen_path}} alt="Producto {{articulo.id_articulo}}">
+                        </div>
+                        <div class="item-details">
+                            <h2>{{articulo.nombre_articulo}}</h2>
+                            <p>Precio: {{articulo.precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}}</p>
+                            <p>{{articulo.tipo_articulo}}</p>
+                        </div>
+                    </div>
+                    <button class="remove-btn" (click)="removerArticulo(articulo.id_articulo)">Eliminar</button>
+                </li>
+            </ul>
+            <div class="cart-total">
+                <p>Total: {{total.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}}</p>
+                <button class="checkout-btn" [disabled]="total==0" (click)="openPopup()">Realizar Compra</button>
+            </div>
+        </div>
+    </section>
+    <div *ngIf="showPopup" class="popup">
+        <div class="popup-content">
+          <p>¿Deseas continuar con la compra?</p>
+          <button class="cancel-btn" (click)="closePopup()">Cancelar</button>
+          <button class="confirm-btn" (click)="iniciarCompra()">Realizar Compra</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 MyGreenFashion. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyGreenFashion</title>
+</head>
+<body>
+    <app-bar></app-bar>
+    <section class="change-password-container">
+        <h2>Depósito de Cartera</h2>
+        <form *ngIf="perfil" (ngSubmit)="openPopup()" [formGroup]="formulario" autocomplete="off">
+            <p><strong>Usuario: </strong>{{perfil.nombre+" "+perfil.apellido}}</p>
+            <p><strong>En cartera: </strong>{{perfil.cartera.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}}</p>
+          <div class="form-group">
+            <label for="total">Ingrese monto a Depositar</label>
+            <input type="number" id="total" min="0"  formControlName="total" required>
+          </div>
+          <button class="submit" type="submit" [disabled]="!formulario.valid">Continuar</button>
+        </form>
+    </section>
+    <div *ngIf="showPopup" class="popup">
+        <div class="popup-content">
+          <p>¿Estás seguro de que deseas continuar?</p>
+          <button class="cancel-btn" (click)="closePopup()">Cancelar</button>
+          <button class="confirm-btn" (click)="envio()">Continuar</button>
+        </div>
+    </div>
+</body>
+</html> 

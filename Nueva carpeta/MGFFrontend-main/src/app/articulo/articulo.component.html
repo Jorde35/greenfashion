@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+</head>
+<body>
+    <app-bar></app-bar>
+    <section class="container">
+        <div class="product-container" *ngIf="articulo">
+            <div class="product-details">
+                <h1>{{articulo.nombre_articulo}}</h1>
+                <p>Cantidad: {{articulo.cantidad}} articulo</p>
+                <p>Marca: {{articulo.marca}}</p>
+                <p>Tipo de artículo: {{articulo.tipo_articulo}}.</p>
+                <p>{{articulo.descripcion}}.</p>
+                <p>Precio: {{articulo.precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}}</p>
+                <a><button (click)="agregarCarrito(articulo.id_articulo)" id="add-to-cart-btn">Agregar al Carrito</button></a>
+            </div>
+            <div class="product-image">
+                <img src={{img_path+articulo.imagen_path}} alt="Imagen del Producto">
+            </div>
+        </div>
+        <div class="comments-section">
+            <h2>Comentarios</h2>
+            <div class="comment-form">
+                <textarea id="comment-input" placeholder="Escribe un comentario"></textarea>
+                <button id="post-comment-btn" (click)="crearComentario()">Publicar Comentario</button>
+            </div>
+            <ul class="comments-list">
+                <li class="comment">
+                    <div class="user-info">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Foto del Usuario">
+                        <div class="user-data">
+                            <span class="user-name">Usuario 1</span>
+                            <span class="comment-date">Fecha del Comentario</span>
+                        </div>
+                    </div>
+                    <div class="comment-details">
+                        <p class="comment-text">Este es el texto del comentario.</p>
+                    </div>
+                </li>
+                <li class="comment">
+                    <div class="user-info">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Foto del Usuario">
+                        <div class="user-data">
+                            <span class="user-name">Usuario 2</span>
+                            <span class="comment-date">Fecha del Comentario</span>
+                        </div>
+                    </div>
+                    <div class="comment-details">
+                        <p class="comment-text">Este es el texto del comentario.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="skip"></section>
+    <footer>
+        <p>&copy; 2023 MyGreenFashion. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+
